@@ -7,7 +7,7 @@ server.use(express.static('public'))
 
 // nesta função estou falando que todas as rotas serao 
 // interpretadas pelo arquivo render 
-server.set('view engine', 'html')
+server.set('view engine', 'njk')
 
 // Todos os arquivos da views seja lidos pela interpretação
 nunjucks.configure('views', {
