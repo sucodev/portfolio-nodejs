@@ -1,195 +1,45 @@
 {% extends "layout.njk" %}
 
-{% block head %}
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<title>About - localdev</title>
-{% endblock %}
+    {% block head %}
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title>About - localdev</title>
+    {% endblock %}
 
-{% block content %}
-    <div id="wrapper" class="overlay">
-        <h1></h1>
-    </div>
+    {% block content %}
 
-    <div class="card__category"><h2>Front-end</h2> <i class="material-icons">favorite</i></div>
+        <div class="card__category"><h2>Front-end</h2> <i class="material-icons">favorite</i></div>
+            <section class="cards">
+                {% for item in items %}
+                    <div class="card" id="{{item.id}}">
+                        <div class="card__image-container">
+                            <img src="https://img.youtube.com/vi/{{item.id}}/maxresdefault.jpg" alt="Imagem de {{item.title}}">
+                        </div>
+                        <div class="card__content">
+                            <p>{{item.title}}</p>
+                        </div>
+                        <div class="card__info">
+                            <p>{{item.duration}}</p>
+                            <p class="card__price">{{item.price}}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </section>
 
-    <section class="cards">
 
-        <div class="card" id="L0zuZYh800Q">
-            <div class="card__image-container">
-                <img src="https://img.youtube.com/vi/L0zuZYh800Q/maxresdefault.jpg" alt="Podcast">
-            </div>
-            <div class="card__content">
-                <p>Podcast - Boas práticas no front-end | Diego Fernandes</p>
-            </div>
-            <div class="card__info">
-                <p>57 min</p>
-                <p class="card__price">FREE</p>
+        <div class="modal-overlay">
+            <div class="modal">
+
+                <a class="close-modal">
+                    <i class="material-icons">close</i>
+                </a>
+
+                <div class="modal-content">
+                    <iframe src="https://www.youtube.com/embed/" frameborder="0"></iframe>
+                </div>
+                
             </div>
         </div>
 
-        <div class="card" id="2alg7MQ6_sI">
-            <div class="card__image-container">
-                <img src="https://img.youtube.com/vi/2alg7MQ6_sI/maxresdefault.jpg" alt="Git e Github na prática">
-            </div>
-            <div class="card__content">
-                <p>Git e Github na prática - Rocketseat | Mayk Brito</p>
-            </div>
-            <div class="card__info">
-                <p>34 min</p>
-                <p class="card__price">FREE</p>
-            </div>
-        </div>
-
-        <div class="card" id="DDm0M_rZLJo">
-            <div class="card__image-container">
-                <img src="https://img.youtube.com/vi/DDm0M_rZLJo/maxresdefault.jpg" alt="Clone interface Nubank">
-            </div>
-            <div class="card__content">
-                <p>Clone interface do nubank - Rocketseat | Diego Fernandes</p>
-            </div>
-            <div class="card__info">
-                <p>1 hora</p>
-                <p class="card__price">FREE</p>
-            </div>
-        </div>
-
-        <div class="card" id="ghTrp1x_1As">
-            <div class="card__image-container">
-                <img src="https://img.youtube.com/vi/ghTrp1x_1As/maxresdefault.jpg" alt="O que é api">
-            </div>
-            <div class="card__content">
-                <p>O que é api? Rest e Restful? | Mayk Brito</p>
-            </div>
-            <div class="card__info">
-                <p>34 min</p>
-                <p class="card__price">FREE</p>
-            </div>
-        </div>
-
-        <div class="card" id="QfcozcbDhNM">
-            <div class="card__image-container">
-                <img src="https://img.youtube.com/vi/QfcozcbDhNM/maxresdefault.jpg" alt="Podcast">
-            </div>
-            <div class="card__content">
-                <p>Podcast - Técnicas de estudo e aprendizado | Diego Fernandes</p>
-            </div>
-            <div class="card__info">
-                <p>44 min</p>
-                <p class="card__price">FREE</p>
-            </div>
-        </div>
-
-        <div class="card" id="awRtgpRsdTQ">
-            <div class="card__image-container">
-                <img src="https://img.youtube.com/vi/awRtgpRsdTQ/maxresdefault.jpg" alt="Recriando interface">
-            </div>
-            <div class="card__content">
-                <p>Recriando interface do pipefy | Diego Fernandes</p>
-            </div>
-            <div class="card__info">
-                <p>1 hora</p>
-                <p class="card__price">FREE</p>
-            </div>
-        </div>
-
-    </section>
-
-    <div class="card__category"><h2>Back-end</h2> <i class="material-icons">favorite_border</i></div>
-
-    <section class="cards">
-
-        <div class="card" id="L0zuZYh800Q">
-            <div class="card__image-container">
-                <img src="https://img.youtube.com/vi/L0zuZYh800Q/maxresdefault.jpg" alt="Podcast">
-            </div>
-            <div class="card__content">
-                <p>Podcast - Boas práticas no front-end | Diego Fernandes</p>
-            </div>
-            <div class="card__info">
-                <p>57 min</p>
-                <p class="card__price">FREE</p>
-            </div>
-        </div>
-
-        <div class="card" id="2alg7MQ6_sI">
-            <div class="card__image-container">
-                <img src="https://img.youtube.com/vi/2alg7MQ6_sI/maxresdefault.jpg" alt="Git e Github na prática">
-            </div>
-            <div class="card__content">
-                <p>Git e Github na prática - Rocketseat | Mayk Brito</p>
-            </div>
-            <div class="card__info">
-                <p>34 min</p>
-                <p class="card__price">FREE</p>
-            </div>
-        </div>
-
-        <div class="card" id="DDm0M_rZLJo">
-            <div class="card__image-container">
-                <img src="https://img.youtube.com/vi/DDm0M_rZLJo/maxresdefault.jpg" alt="Clone interface Nubank">
-            </div>
-            <div class="card__content">
-                <p>Clone interface do nubank - Rocketseat | Diego Fernandes</p>
-            </div>
-            <div class="card__info">
-                <p>1 hora</p>
-                <p class="card__price">FREE</p>
-            </div>
-        </div>
-
-        <div class="card" id="ghTrp1x_1As">
-            <div class="card__image-container">
-                <img src="https://img.youtube.com/vi/ghTrp1x_1As/maxresdefault.jpg" alt="O que é api">
-            </div>
-            <div class="card__content">
-                <p>O que é api? Rest e Restful? | Mayk Brito</p>
-            </div>
-            <div class="card__info">
-                <p>34 min</p>
-                <p class="card__price">FREE</p>
-            </div>
-        </div>
-
-        <div class="card" id="QfcozcbDhNM">
-            <div class="card__image-container">
-                <img src="https://img.youtube.com/vi/QfcozcbDhNM/maxresdefault.jpg" alt="Podcast">
-            </div>
-            <div class="card__content">
-                <p>Podcast - Técnicas de estudo e aprendizado | Diego Fernandes</p>
-            </div>
-            <div class="card__info">
-                <p>44 min</p>
-                <p class="card__price">FREE</p>
-            </div>
-        </div>
-
-        <div class="card" id="awRtgpRsdTQ">
-            <div class="card__image-container">
-                <img src="https://img.youtube.com/vi/awRtgpRsdTQ/maxresdefault.jpg" alt="Recriando interface">
-            </div>
-            <div class="card__content">
-                <p>Recriando interface do pipefy | Diego Fernandes</p>
-            </div>
-            <div class="card__info">
-                <p>1 hora</p>
-                <p class="card__price">FREE</p>
-            </div>
-        </div>
-
-    </section>
-
-    <div class="modal-overlay">
-        <div class="modal">
-            <a class="close-modal">
-                <i class="material-icons">close</i>
-            </a>
-
-            <div class="modal-content">
-                <iframe src="https://www.youtube.com/embed/L0zuZYh800Q" frameborder="0"></iframe>
-            </div>
-        </div>
-    </div>
-
-    <script src="index.js"></script>
+        <script src="index.js"></script>
     
-{% endblock %}
+    {% endblock %}

@@ -1,31 +1,41 @@
 const express = require('express')
 const nunjucks = require('nunjucks')
 const server = express()
+const videos = require('./data')
 
-// Usando uma função do express ( static ) que faz com que os meus arquivos estáticos que estão presentes dentro da pasta public sejam interpretados
 server.use(express.static('public'))
 
-// nesta função estou falando que todas as rotas serao 
-// interpretadas pelo arquivo render 
 server.set('view engine', 'njk')
 
-// Todos os arquivos da views seja lidos pela interpretação
 nunjucks.configure('views', {
-    express:server
+    express:server,
+    autoescape: false
 })
 
-// Criação das rotas
 server.get("/", (req, res) => {
-    return res.render('about')
+    
+    const about = { 
+        avatarURL: "https://avatars3.githubusercontent.com/u/51240229?s=400&v=4",
+        name: "Marcos Del Valle",
+        role: "Desenvolvedor FullStack",
+        description: "Desenvolvedor Fullstack com foco em desenvolvimento de aplicações nativas.",
+        links : [
+            { name: "Github", url: "https://github.com/mansodelvalle"},
+            { name: "Twitter", url: "https://twitter.com/faladelvalle"},
+            { name: "Linkedin", url: "https://www.linkedin.com/in/marcosvdelvalle"}
+        ]
+    }
+    return res.render('about', {about})
 })
+
 server.get("/courses", (req, res) => {
-    return res.render('courses')
+    return res.render('courses', { items: videos} )
 })
+
 server.use((req, res) => {
     res.status(404).render('not-found')
 })
 
-//  Ele precisa ouvir a porta 3333 para rodar o servidor
 server.listen(3333, () => {
     console.log('Server is running')
 })

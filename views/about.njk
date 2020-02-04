@@ -1,22 +1,23 @@
 {% extends "layout.njk" %}
 
-{% block head %}
-<title>Courses - localdev</title>
-{% endblock %}
+    {% block head %}
+        <title>Courses - localdev</title>
+    {% endblock %}
 
-{% block content %}
-    <div id="wrapper">
-        <img src="https://avatars3.githubusercontent.com/u/51240229?s=400&v=4" alt="Marcos Del Valle">
-        <h1>Desenvolvedor FullStack</h1>
-        <h2>Marcos Del Valle</h2>
-        <p>Desenvolvedor Fullstack com foco em desenvolvimento de aplicações nativas.</p>
-    </div>
+    {% block content %}
 
-    <div id="links-footer" class="links">
-        <a href="https://github.com/mansodelvalle" target="_blank">Github</a>
-        <a href="https://twitter.com/faladelvalle" target="_blank">Twitter</a>
-        <a href="https://facebook.com/mansodelvalle" target="_blank">Linkedin</a>
-    </div>
-{% endblock %}
-</body>
-</html>
+        <div id="wrapper">
+            <img src="{{ about.avatarURL }}" alt="Imagem de {{ about.name }}">
+            <h1>{{ about.role }}</h1>
+            <h2>{{ about.name }}</h2>
+            <p>{{ about.description }}</p>
+        </div>
+
+        <div id="links-footer" class="links">
+
+            {% for link in about.links %}
+                <a href="{{ link.url }}" target="_blank">{{ link.name }}</a>
+            {% endfor %}
+
+        </div>
+    {% endblock %}
