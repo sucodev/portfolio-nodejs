@@ -1,5 +1,9 @@
 [x] - Instalar o express
-    [] - Criar rotas ( About, Courses, page-not-found)
+    [x] - Criar o servidor
+    [x] - Criar rotas ( About, Courses, page-not-found)
+    [x] - Setar função para o view engine interpretar o html
 [x] - Instalar o nodemon
-    [] - Substituir o "start": "node server.js" | "start": "nodemon server.js"
+    [x] - Substituir o "start": "node server.js" | "start": "nodemon server.js"
 [x] - Instalar o nunjucks 
+    [x] - Configurar o nunjucks para que interprete os arquivos do diretorio views, passando como segundo parametro o express:server 
+    [ ] - Configurar o layout.html para usar template engine  

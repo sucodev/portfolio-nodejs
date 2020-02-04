@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/style.css">
-    <title>localdev</title>
+
+    {% block head %}
+        <title>localdev</title>
+    {% endblock %}
+
 </head>
 <body>
     
@@ -16,12 +20,9 @@
         </div>
     </header>
 
-    {% block notfound %}
+    {% block notfound %}{% endblock %}
 
-    {% endblock %}
-
-    {% block content %}
-    {% endblock %}
+    {% block content %}{% endblock %}
 
 </body>
 </html>
